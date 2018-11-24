@@ -14,6 +14,8 @@ class Transaction extends CI_Controller
 
     }
     function index(){
+        $data['result'] = $this->Transaction_model->get_transaction()->result_array();
+       // print_r($data);die;
 		$data['header'] = $this->load->view('template/header','',true);
 		$data['topnav'] = $this->load->view('template/topbarnav','',true);
 		$data['sidenav'] = $this->load->view('template/sidenav','',true);

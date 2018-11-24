@@ -35,7 +35,7 @@
 <?php  } ?>
 <?php  if(in_array('admin',$this->session->userdata('groups')) || in_array('employee',$this->session->userdata('groups'))){ ?>
 	<li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?php echo base_url();?>transaction">
             <i class="fas fa-fw fa-handshake"></i>
             <span>Transactions</span>
           </a>

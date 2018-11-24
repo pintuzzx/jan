@@ -4,6 +4,9 @@
 		<li class="breadcrumb-item">
 		  <a href="<?php echo base_url();?>">Dashboard</a>
 		</li>
+    <li class="breadcrumb-item">
+		  <a href="<?php echo base_url();?>transaction">Transaction Master</a>
+		</li>
 		<li class="breadcrumb-item active">Debit/Credit</li>
 	  </ol>
 	  <!-- Page Content -->
@@ -11,7 +14,7 @@
 	  <hr>
 	  
       <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 float-left">
       <p id="infoMessage"><?php echo $message; ?></p>
       <input type="hidden" name="baseUrl" id="baseUrl" value="<?php echo base_url();?>"/>
       <form class="" method="post" action="<?php echo base_url();?>transaction/trans_money">
@@ -26,7 +29,7 @@
       <div class="form-group">
         <label>Branch Name</label>
         <!-- <input class="form-control" type="text" id="branch_name" name="branch_name" /> -->
-        <select class="form-control" type="text" id="branch_name" name="branch_name">
+        <select class="form-control" type="text" id="branch_name" name="branch_name" readonly="readonly">
 
         </select>
       </div> 
@@ -67,14 +70,28 @@
         <input class="btn btn-default" type="reset" name="Cancel" value="Cancel"/>
       <div>
       </form>
+
       </div>
-      
       </div>
 </div>
+<div class="col-md-6 float-right">
+          <div class="form_group">
+          <label>Member Name</label>
+          <input class="form-control" type="text" id="mem_name" name="mem_name" readonly="readonly" />
+          </div>
+          <div class="form_group">
+          <label>Member pic</label>
+          <img src="" id="mem_pic" name="mem_pic" height="400" widht="200" alt="No Record" >
+          </div>
+          <div class="form_group">
+          <label>Member sign</label>
+          <img src="" id="mem_sign" name="mem_sign" height="400" widht="200" alt="No Record" >
+          </div>
+      </div>
 <script>
 var baseUrl = $('#baseUrl').val();
 $(document).ready(function(){
-$(document).on('keyup','#ac_no',function(e){
+$(document).on('keyup blur','#ac_no',function(e){
     clearTimeout($.data(this,'timer'));
     if(e.keyCode == 13)
         search(true);
