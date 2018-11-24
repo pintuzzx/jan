@@ -1,0 +1,27 @@
+<?php
+
+(defined('BASEPATH')) OR exit('No direct script access allowed');
+
+/**
+ * Description of site
+ *
+ * @author https://www.roytuts.com
+ */
+class Site extends CI_Controller {
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    function index() {
+        $this->load->view('home');
+    }
+    function insert()
+    {
+        
+    }
+
+}
+
+/* End of file Site.php */
+/* Location: ./application/modules/site/controllers/site.php */
