@@ -8,7 +8,7 @@
     </ol>
 <div class="row">
       <div class="col-lg-12 col-sm-6 mb-3">
-	  <h5 class="d-flex justify-content-start">List of Employeefds</h5>
+	  <h5 class="d-flex justify-content-start">List of Employee1</h5>
       <h5 class="d-flex justify-content-end"><a href="<?php echo base_url(); ?>auth/create_user">Add Employee</a></h5>
 	  <hr>
 
