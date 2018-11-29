@@ -32,15 +32,4 @@ class Ajax extends CI_Controller {
 			echo json_encode(array('msg'=>'No record Found.','status'=>500));
 		}
 	}
-	
-	function branch_delete(){
-		$b_id = $this->input->post('b_id');
-		$result = $this->Branch_model->branch_delete($b_id)->result_array();
-		if($result){
-			echo json_encode(array('data'=>'','msg'=>'Branch Deleted Successfully.','status'=>200));
-		}
-		else{
-			echo json_encode(array('data'=>'','msg'=>'Branch Not Deleted.','status'=>500));
-		}
-	}
 }

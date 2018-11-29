@@ -14,7 +14,7 @@
 	  <hr>
 	  
       <div class="row">
-      <div class="col-md-6 float-left">
+      <div class="col-sm">
       <p id="infoMessage"><?php echo $message; ?></p>
       <input type="hidden" name="baseUrl" id="baseUrl" value="<?php echo base_url();?>"/>
       <form class="" method="post" action="<?php echo base_url();?>transaction/trans_money">
@@ -74,18 +74,18 @@
       </div>
       </div>
 </div>
-<div class="col-md-6 float-right">
+<div class="col-sm">
           <div class="form_group">
           <label>Member Name</label>
           <input class="form-control" type="text" id="mem_name" name="mem_name" readonly="readonly" />
           </div>
           <div class="form_group">
           <label>Member pic</label>
-          <img src="" id="mem_pic" name="mem_pic" height="400" widht="200" alt="No Record" >
+          <img class="img-responsive img-sm" src="" id="mem_pic" name="mem_pic" alt="No Record" >
           </div>
           <div class="form_group">
           <label>Member sign</label>
-          <img src="" id="mem_sign" name="mem_sign" height="400" widht="200" alt="No Record" >
+          <img class="img-responsive" src="" id="mem_sign" name="mem_sign" alt="No Record" >
           </div>
       </div>
 <script>
@@ -111,8 +111,13 @@ function search(force){
 				success : function (response){
                    // console.log(response.data[0]['name']);
 					if(response.status == 200){
+                        let pic = baseUrl+'uploads/'+response.data[0]["photo"];
+                        let sign = baseUrl+'uploads/'+response.data[0]["sign"];
                         $('select[name="branch_name"]').append('<option value="'+response.data[0]["b_id"]+'">'+response.data[0]["name"]+'</option>');
                         $('select[name="ac_type"]').append('<option value="'+response.data[0]["a_id"]+'">'+response.data[0]["ac_type"]+'</option>');
+                        $('#mem_name').val(response.data[0]["full_name"]); 
+                        $('#mem_pic').attr('src',pic);
+                        $('#mem_sign').attr('src',sign);
                     }
                     else{
                         alert(response.msg);
